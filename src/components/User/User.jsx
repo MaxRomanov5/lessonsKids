@@ -1,14 +1,32 @@
 
 
-const User = ({name,age}) => {
-console.log(age);
+const User = ({name,avatar,tag,location,followers,views,likes}) => {
+
+
+
 
     return (
         <>
  <div>
-
+<img src={avatar} alt="" />
      <h1>{name}</h1>
-{age>=18 && <p>Adult</p>}
+<p>{tag}</p>
+<p>{location}</p>
+<ul>
+    <li>
+   
+        <p>Followers</p>
+        <p>{followers}</p>
+    </li>
+    <li>
+        <p>Views</p>
+        <p>{views}</p>
+    </li>
+    <li>
+        <p>Likes</p>
+        {likes}
+    </li>
+</ul>
  </div>
 
 
