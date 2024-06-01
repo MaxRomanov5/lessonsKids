@@ -1,6 +1,7 @@
-
 import './App.css'
+import Friendlist from './components/FriendList/Friendlist'
 import User from './components/User/User'
+import friends from './data/Friendlist'
 import userData from './data/user'
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
      avatar={avatar} followers={followers} views={views}
      likes={likes}
     />
+    <Friendlist friendlist = {friends}/>
 
     </>
   )
