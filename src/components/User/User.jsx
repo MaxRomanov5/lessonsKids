@@ -1,4 +1,4 @@
-
+import s from "./User.module.css"
 
 const User = ({name,avatar,tag,location,followers,views,likes}) => {
 
@@ -7,24 +7,25 @@ const User = ({name,avatar,tag,location,followers,views,likes}) => {
 
     return (
         <>
- <div>
-<img src={avatar} alt="" />
-     <h1>{name}</h1>
-<p>{tag}</p>
-<p>{location}</p>
-<ul>
-    <li>
-   
-        <p>Followers</p>
-        <p>{followers}</p>
+ <div className={s.user}>
+    <div className={s.avatarWrap}>
+        <img className = {s.avatar} src={avatar} alt="avatar" />
+    </div>
+     <h1 className = {s.name}>{name}</h1>
+    <p className = {s.tag}>@{tag}</p>
+    <p className = {s.location}>{location}</p>
+<ul className = {s.stats}>
+    <li className={s.statsItem}>
+        <p className = {s.statsNames}>Followers</p>
+        <p className = {s.statsCount}>{followers}</p>
     </li>
-    <li>
-        <p>Views</p>
-        <p>{views}</p>
+    <li className={s.statsItem}>
+        <p className = {s.statsNames}>Views</p>
+        <p className = {s.statsCount}>{views}</p>
     </li>
-    <li>
-        <p>Likes</p>
-        {likes}
+    <li className={s.statsItem}>
+        <p className = {s.statsNames}>Likes</p>
+        <p className = {s.statsCount}>{likes}</p>
     </li>
 </ul>
  </div>

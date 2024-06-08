@@ -66,3 +66,16 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+h1,p,div,h3,ul,h2,body{
+  margin: 0;
+  padding: 0;
+}
+ul{
+  list-style: none;
+}
+img{
+  display: block;
+}
+a{
+  text-decoration: none;
+}
