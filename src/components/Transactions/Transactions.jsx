@@ -1,11 +1,12 @@
 import React from 'react'
+import s from "./Transactions.module.css"
 
 const Transactions = ({ transactions }) => {
   console.log(transactions);
   return (
     <div>
       <table>
-        <thead>
+        <thead className={s.head}>
           <tr>
             <th>Type</th>
             <th>Amount</th>
