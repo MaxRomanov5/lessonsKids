@@ -1,3 +1,38 @@
 .head{
     background-color: rgb(53, 53, 53);
+    
 }
+.titleTable {
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 150px;
+}
+
+.textTable{
+     font-size: medium;
+     text-align: center;
+     padding-top: 5px;
+     padding-bottom: 5px;
+    color: black;
+}
+.typeTable{
+    font-size: medium;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-transform: capitalize;
+    color: black;
+}
+
+.trbody:nth-child(2n){
+    background-color: gray;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+

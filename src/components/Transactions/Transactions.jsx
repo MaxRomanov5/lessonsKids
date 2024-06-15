@@ -7,20 +7,20 @@ const Transactions = ({ transactions }) => {
     <div>
       <table>
         <thead className={s.head}>
-          <tr>
-            <th>Type</th>
-            <th>Amount</th>
-            <th>Currency</th>
+          <tr className={s.tr}>
+            <th className={s.titleTable}>Type</th>
+            <th className={s.titleTable}>Amount</th>
+            <th className={s.titleTable}>Currency</th>
           </tr>
         </thead>
 
         <tbody>
           {transactions.map((transactions) => {
       return (
-          <tr id={transactions.id}>
-            <td>{transactions.type}</td>
-            <td>{transactions.amount}</td>
-            <td>{transactions.currency}</td>
+          <tr className={s.trbody}  id={transactions.id}>
+            <td className={s.typeTable}>{transactions.type}</td>
+            <td className={s.textTable}>{transactions.amount}</td>
+            <td className={s.textTable}>{transactions.currency}</td>
           </tr>
           )
     })
