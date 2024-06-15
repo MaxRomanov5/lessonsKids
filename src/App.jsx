@@ -5,6 +5,7 @@ import User from './components/User/User'
 import friends from './data/Friendlist'
 import userData from './data/user'
 import transactions from './data/transactions'
+import FeedbackForm from './components/FeedbackForm/FeedbackForm'
 function App() {
 
   const {username,tag,location,avatar,stats:{followers,views,likes}} = userData
@@ -17,6 +18,7 @@ function App() {
     />
     <Friendlist friendlist = {friends}/>
     <Transactions transactions = {transactions}/>
+    <FeedbackForm></FeedbackForm>
     </>
   )
 }
