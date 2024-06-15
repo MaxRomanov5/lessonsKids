@@ -1,17 +1,18 @@
 import React from 'react'
+import s from './Friendlist.module.css'
 
 
 const Friendlist = ({friendlist}) => {
     console.log(friendlist);
   return (
     <div>
-      <ul>
+      <ul className={s.ul}>
         {friendlist.map((friend)=> {
             return(
-                <li key={friend.id}>
-                    <img src={friend.avatar}/>
-                    <p>{friend.name}</p>
-                    <p>{friend.isOnline? "Online": "offline"}</p>
+                <li className={s.friend} key={friend.id}>
+                    <img className={s.avatar} src={friend.avatar}/>
+                    <p className={s.name}>{friend.name}</p>
+                    <p className={friend.isOnline ? s.Online:s.Offline}>{friend.isOnline? "Online": "Offline"}</p>
                     
                 </li>
             );
