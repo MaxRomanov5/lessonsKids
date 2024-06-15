@@ -1,22 +1,32 @@
 import React from 'react';
 import { useState } from 'react';
+import s from './Feedback.module.css'
 const FeedbackForm = () => {
     const [good, setGood] = useState(0);
     const [bad, setBad] = useState(0);
     const [neutral, setNeutral] = useState(0);
+    const TotalFeedBack = good+bad+neutral
+    const TotalPositiveFeedback = good/TotalFeedBack
     return (
         <div>
-            <ul>
+            <ul className={s.buttonList}>
                 <li>
-                    <button onClick={()=>{setGood(good +1)}}>good</button>
+                    <button className={s.button} conClick={()=>{setGood(good +1)}}>good</button>
                 </li>
                 <li>
-                    <button onClick={()=>{setBad(bad +1)}}>bad</button>
+                    <button className={s.button} onClick={()=>{setBad(bad +1)}}>bad</button>
                 </li>
                 <li>
-                    <button onClick={()=>{setNeutral(neutral +1)}}>neutral</button>
+                    <button className={s.button} onClick={()=>{setNeutral(neutral +1)}}>neutral</button>
+                </li>
+                <li>
+                    <button className={s.buttonReset} onClick={()=>{setGood(0)
+                        setBad(0)
+                        setNeutral(0)
+                    }}>reset</button>
                 </li>
             </ul>
+            <ul></ul>
             <ul>
                 <li>
                 <p>Good:{good}</p>
@@ -28,8 +38,11 @@ const FeedbackForm = () => {
                 <p>Neutral:{neutral}</p>
                 </li>
                 <li>
-                <p>Total Posetive FeedBack</p>
+                <p>TotalFeedBack:{TotalFeedBack}</p>
                 </li>
+                {good>0 && <li>
+                <p>Total Posetive FeedBack:{TotalPositiveFeedback}</p>
+                </li>}
             </ul>
         </div>
     );
