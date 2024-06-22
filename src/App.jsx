@@ -12,12 +12,12 @@ function App() {
 
   return (
     <>
-    <User name={username} tag={tag} location={location}
+    {/* <User name={username} tag={tag} location={location}
      avatar={avatar} followers={followers} views={views}
      likes={likes}
     />
     <Friendlist friendlist = {friends}/>
-    <Transactions transactions = {transactions}/>
+    <Transactions transactions = {transactions}/> */}
     <FeedbackForm></FeedbackForm>
     </>
   )

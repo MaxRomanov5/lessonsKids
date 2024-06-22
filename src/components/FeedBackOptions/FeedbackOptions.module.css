@@ -1,0 +1,17 @@
+.buttonList{
+    display: flex;
+    gap: 20px;
+    padding: 50px;
+}
+
+.button{
+     border: 1px solid black;
+     border-radius: 10px;
+     background-color: rgb(58, 173, 110);
+}
+
+.buttonReset{
+    border-radius: 10px;
+    border: 1px solid red;
+    color:red
+}
