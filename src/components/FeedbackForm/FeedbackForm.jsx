@@ -2,48 +2,60 @@ import React from 'react';
 import { useState } from 'react';
 import s from './Feedback.module.css'
 const FeedbackForm = () => {
-    const [good, setGood] = useState(0);
-    const [bad, setBad] = useState(0);
-    const [neutral, setNeutral] = useState(0);
-    const TotalFeedBack = good+bad+neutral
-    const TotalPositiveFeedback = good/TotalFeedBack
+    
+    const [Feedback, setFeedback] = useState(() => {
+        return JSON.parse(localStorage.getItem('Feedback')) || {good:0,bad:0, neutral:0}
+    })
+        function handleFeedback (type) {
+            const newFeedback = {...Feedback}
+            newFeedback[type]= newFeedback[type]+1
+            localStorage.setItem('Feedback',JSON.stringify(newFeedback))
+            setFeedback(newFeedback)
+        }
+    const TotalFeedBack = Feedback.good+Feedback.neutral+Feedback.bad;
+    const TotalPositiveFeedback = Feedback.good/TotalFeedBack*100
+    
     return (
+        
         <div>
+            <div >
+            <h1 className={s.title}>Sip Happens Cafe</h1>
+            <h2>Please leave your feedback about our service by selection one of options below.</h2>
+            </div>
             <ul className={s.buttonList}>
                 <li>
-                    <button className={s.button} conClick={()=>{setGood(good +1)}}>good</button>
+                    <button className={s.button} onClick={()=>{handleFeedback("good")}}>good</button>
                 </li>
                 <li>
-                    <button className={s.button} onClick={()=>{setBad(bad +1)}}>bad</button>
+                    <button className={s.button} onClick={()=>{handleFeedback("bad")}}>bad</button>
                 </li>
                 <li>
-                    <button className={s.button} onClick={()=>{setNeutral(neutral +1)}}>neutral</button>
+                    <button className={s.button} onClick={()=>{handleFeedback("neutral")}}>neutral</button>
                 </li>
                 <li>
-                    <button className={s.buttonReset} onClick={()=>{setGood(0)
-                        setBad(0)
-                        setNeutral(0)
-                    }}>reset</button>
+                    <button className={s.buttonReset} onClick={()=>{setFeedback({good:0, neutral:0, bad:0})
+                     localStorage.removeItem('Feedback')}}>reset</button>
                 </li>
             </ul>
             <ul></ul>
-            <ul>
-                <li>
-                <p>Good:{good}</p>
+            
+            {TotalFeedBack?<ul className={s.totalList}>
+                <li className={s.totalListItem}>
+                <p>Good:{Feedback.good}</p>
                 </li>
-                <li>
-                <p>Bad:{bad}</p>
+                <li className={s.totalListItem}>
+                <p>Bad:{Feedback.bad}</p>
                 </li>
-                <li>
-                <p>Neutral:{neutral}</p>
+                <li className={s.totalListItem}>
+                <p>Neutral:{Feedback.neutral}</p>
                 </li>
-                <li>
+                <li className={s.totalListItem}>
                 <p>TotalFeedBack:{TotalFeedBack}</p>
                 </li>
-                {good>0 && <li>
-                <p>Total Posetive FeedBack:{TotalPositiveFeedback}</p>
+                {Feedback.good>0 && <li className={s.totalListItem}>
+                <p>Total Posetive FeedBack:{TotalPositiveFeedback.toFixed(2)}%</p>
                 </li>}
-            </ul>
+            </ul> : "Not Feedback Yet" }
         </div>
     );
 }

@@ -6,11 +6,31 @@
 
 .button{
      border: 1px solid black;
-     border-radius: 20px;
+     border-radius: 10px;
+     background-color: rgb(58, 173, 110);
 }
 
 .buttonReset{
-    border-radius: 20px;
+    border-radius: 10px;
     border: 1px solid red;
     color:red
+}
+
+
+.totalList{
+    gap: 20px;
+    padding: 30px;
+    display: flex;border: 1px solid black;
+    border-radius: 10px;
+    background-color: rgb(58, 173, 110);
+    
+}
+
+.totalListItem{
+    font-weight: 900;
+    color: black;
+}
+
+.title{
+   padding-bottom: 40px;
 }
