@@ -4,7 +4,7 @@ import axios from "axios";
 async function getProducts(offset) {
     
  const response =  await axios.get(`https://api.escuelajs.co/api/v1/products?offset=${offset}&limit=9`)
-
+console.log(response);
  return response.data
 }
 

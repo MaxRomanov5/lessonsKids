@@ -21,8 +21,8 @@ function App() {
     <Friendlist friendlist = {friends}/>
     <Transactions transactions = {transactions}/> */}
     {/* <FeedbackForm></FeedbackForm> */}
-    {/* <Store /> */}
-    <FindProduct />
+    <Store />
+    {/* <FindProduct /> */}
     </>
   )
 }

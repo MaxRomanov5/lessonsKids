@@ -2,10 +2,14 @@ import React,{useState,useEffect} from 'react';
 import api from '../../Api/Products'
 import Product from '../Product/Product';
 import s from './Store.module.css'
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
+
 const Store = () => {
 const [products, setProducts] = useState([]);
 const [loading, setLoading] = useState(false);
 const [offset, setOffset] = useState(0);
+const [buttonHide, setButtonHide] = useState(true);
 
 function loadMore() {
     setOffset(offset+9)
@@ -19,6 +23,10 @@ useEffect(() => {
         try {
             setLoading(true)
             const res = await api.getProducts(offset)
+            if(res.length<9){
+setButtonHide(false)
+Notify.warning('You reached the end!')
+            }
             const newArray = [...products,...res]
             setProducts(newArray)
         } catch (error) {
@@ -65,7 +73,7 @@ fetchProducts()
 
                 }
             </ul>
-            <button onClick={loadMore} className={s.btn}>Load More</button>
+            {buttonHide && <button onClick={loadMore} className={s.btn}>Load More</button>}
             </div>:'No products yet!'}
 
         </>
