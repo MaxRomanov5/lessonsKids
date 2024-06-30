@@ -6,6 +6,8 @@ import friends from './data/Friendlist'
 import userData from './data/user'
 import transactions from './data/transactions'
 import FeedbackForm from './components/FeedbackForm/FeedbackForm'
+import Store from './components/Store/Store'
+import FindProduct from './components/FindProduct/FindProduct'
 function App() {
 
   const {username,tag,location,avatar,stats:{followers,views,likes}} = userData
@@ -18,7 +20,9 @@ function App() {
     />
     <Friendlist friendlist = {friends}/>
     <Transactions transactions = {transactions}/> */}
-    <FeedbackForm></FeedbackForm>
+    {/* <FeedbackForm></FeedbackForm> */}
+    {/* <Store /> */}
+    <FindProduct />
     </>
   )
 }
