@@ -8,10 +8,10 @@ import transactions from './data/transactions'
 import FeedbackForm from './components/FeedbackForm/FeedbackForm'
 import Store from './components/Store/Store'
 import FindProduct from './components/FindProduct/FindProduct'
-import Todo from './components/Todo/Todo'
+import Todo from './components/Todo/Todo.jsx'
 function App() {
 
-  const {username,tag,location,avatar,stats:{followers,views,likes}} = userData
+  // const {username,tag,location,avatar,stats:{followers,views,likes}} = userData
 
   return (
     <>

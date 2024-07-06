@@ -1,11 +1,16 @@
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import s from './TodoForm.module.css'
 const TodoForm = ({tasks,setTasks}) => {
 
 
     function onSubmit(e) {
         e.preventDefault()
     const taskText = e.target.elements.task.value
+    if(taskText===''){
+alert('enter task')
+return
+    }
     const newTask = {
        taskText,
         complete:false,
@@ -21,9 +26,9 @@ const TodoForm = ({tasks,setTasks}) => {
 
     return (
         <div>
-            <form onSubmit={onSubmit} action="submit">
-    <input type="text" name="task" />
-    <button type='submit'>Add Task</button>
+            <form className={s.form} onSubmit={onSubmit} action="submit">
+    <input className={s.input} type="text" name="task" />
+    <button className={s.button} type='submit'>Add Task</button>
 </form>
         </div>
     );

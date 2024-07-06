@@ -1,7 +1,8 @@
 import React,{useState} from 'react';
 
 import TodoForm from './TodoForm/TodoForm';
-const TodoList = () => {
+import TodoList from './TodoList/TodoList';
+const Todo = () => {
 const [tasks, setTasks] = useState([]);
 
 
@@ -18,4 +19,4 @@ const [tasks, setTasks] = useState([]);
     );
 }
 
-export default TodoList;
+export default Todo;
