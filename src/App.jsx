@@ -1,4 +1,5 @@
 import './App.css'
+import Pokemons  from './Pokemons/Pokemons.jsx'
 import Friendlist from './components/FriendList/Friendlist'
 import Transactions from './components/Transactions/Transactions'
 import User from './components/User/User'
@@ -24,7 +25,8 @@ function App() {
     {/* <FeedbackForm></FeedbackForm> */}
     {/* <Store /> */}
     {/* <FindProduct /> */}
-<Todo/>
+{/* <Todo/> */}
+  <Pokemons/>
     </>
   )
 }
