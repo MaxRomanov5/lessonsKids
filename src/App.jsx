@@ -6,7 +6,7 @@ import User from './components/User/User'
 import friends from './data/Friendlist'
 import userData from './data/user'
 import transactions from './data/transactions'
-import FeedbackForm from './components/FeedbackForm/FeedbackForm'
+
 import Store from './components/Store/Store'
 import FindProduct from './components/FindProduct/FindProduct'
 import Todo from './components/Todo/Todo.jsx'

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 export default function Pokemons() {
 
-    const [pokemonList, setPokemonList] = useState();
+    const [pokemonList, setPokemonList] = useState([]);
     
   useEffect(() => {
 
@@ -13,16 +13,27 @@ export default function Pokemons() {
 
         setPokemonList(res)
     }
-
+    
     getPokemons()
   }, []);
-
+  async function getSinglePokemon(url){
+    const result = await fetch(url);
+    const res = await result.json();
+    console.log(res);
+    return(
+      <div>
+        <p>{res.name}</p>
+        <p>{res.id}</p>        
+      </div>
+    )
+  } 
+  
   return (
     <div>
-        {pokemonList.results.map((pokemon)=>{
+        {pokemonList?.results && pokemonList?.results?.map((pokemon)=>{
             return(
                 <div>
-                    {pokemon.name}   
+                    {getSinglePokemon(pokemon.url)}   
                 </div>
             )
         })}
