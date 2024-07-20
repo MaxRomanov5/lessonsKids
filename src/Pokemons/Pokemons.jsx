@@ -4,6 +4,8 @@ export default function Pokemons() {
 
     const [pokemonList, setPokemonList] = useState([]);
     
+    const listWrap = document.querySelector('#list')
+
   useEffect(() => {
 
     async function getPokemons () {
@@ -11,32 +13,38 @@ export default function Pokemons() {
         const res = await result.json()
         console.log(res)
 
-        setPokemonList(res)
+const newArray = await res.results.map(async(pokemon)=>{
+  const result = await fetch(pokemon.url);
+    const res = await result.json();
+    console.log(res);
+   const markup = ` <li>
+  <p>${res.name}</p><p>${res.id}</p> 
+  <img  src=${res.sprites.other.dream_world.front_default}   alt="">      
+</li>`
+   listWrap.insertAdjacentHTML('beforeend', markup)
+})
+        setPokemonList(newArray)
     }
     
     getPokemons()
   }, []);
-  async function getSinglePokemon(url){
-    const result = await fetch(url);
-    const res = await result.json();
-    console.log(res);
-    return(
-      <div>
-        <p>{res.name}</p>
-        <p>{res.id}</p>        
-      </div>
-    )
-  } 
+
+  
+  // async function getSinglePokemon(url){
+  //   const result = await fetch(url);
+  //   const res = await result.json();
+  //   console.log(res);
+  //   return(
+  //     <li>
+  //       <p>{res.name}</p>
+  //       <p>{res.id}</p>        
+  //     </li>
+  //   )
+  // } 
   
   return (
-    <div>
-        {pokemonList?.results && pokemonList?.results?.map((pokemon)=>{
-            return(
-                <div>
-                    {getSinglePokemon(pokemon.url)}   
-                </div>
-            )
-        })}
-    </div>
+    <ul id='list'>
+        
+    </ul>
   )
 }
