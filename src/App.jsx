@@ -11,6 +11,8 @@ import Store from './components/Store/Store'
 import FindProduct from './components/FindProduct/FindProduct'
 import Todo from './components/Todo/Todo.jsx'
 import WeatherApp from './components/WeatherApp/WeatherApp'
+import Starwars from './components/Starwars/Starwars.jsx'
+
 function App() {
 
   // const {username,tag,location,avatar,stats:{followers,views,likes}} = userData
@@ -28,7 +30,8 @@ function App() {
     {/* <FindProduct /> */}
 {/* <Todo/> */}
   {/* <Pokemons/> */}
-  <WeatherApp/>
+  {/*<WeatherApp/>*/}
+  <Starwars/>
     </>
   )
 }
