@@ -7,11 +7,19 @@
 .characterListItem{
     border: 2px solid white;
     padding: 20px;
-};
+}
 
 .btn{
     display: block;
-    border: 2px solid gray ;
-    padding: 10px;
+    border: 2px solid red ;
+    padding: 10px 20px;
     border-radius: 5px;
+cursor: pointer;
+    background-color: rebeccapurple;
+}
+.btnList{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
 }
