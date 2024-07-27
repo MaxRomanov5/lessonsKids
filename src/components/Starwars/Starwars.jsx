@@ -4,8 +4,8 @@ import s from "./Starwars.module.css"
 
 export default function Starwars() {
     const [page, setPage] = useState(1);
-    
-
+    const [inputValue, setInputValue] = useState();
+    const [singleCharacter, setSingleCharacter] = useState(null);
     const [dataInfo, setDataInfo] = useState();
 
     console.log(dataInfo)
@@ -29,8 +29,15 @@ export default function Starwars() {
         getStarwarsCharecters()
       }, [page]);
 
-    
-
+    function handleInput(e){
+         setInputValue(e.target.value)
+    }
+   async function onSearchCharacter(e){
+    e.preventDefault();
+      const result = await fetch(`https://swapi.dev/api/people/${inputValue}/`)
+      const res = await result.json();
+      setSingleCharacter(res)
+    }
 
   return (
     <div>
@@ -44,6 +51,13 @@ export default function Starwars() {
         </ul><ul className={s.btnList}><li><button className={s.btn} disabled={dataInfo.previous?false:true} onClick={onClickPrev}>prev</button></li> 
                 <li><button className={s.btn} disabled={dataInfo.next?false:true} onClick={onClickNext}>next</button></li>
               </ul></>}
+             <form onSubmit={onSearchCharacter}> 
+             <input onChange={handleInput} value={inputValue}></input>
+             <button type='submit'>find</button>
+            </form>
+             <div>
+               {singleCharacter&& singleCharacter.name}
+             </div>
     </div>
   )
 }
