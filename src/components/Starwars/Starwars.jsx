@@ -51,12 +51,16 @@ export default function Starwars() {
         </ul><ul className={s.btnList}><li><button className={s.btn} disabled={dataInfo.previous?false:true} onClick={onClickPrev}>prev</button></li> 
                 <li><button className={s.btn} disabled={dataInfo.next?false:true} onClick={onClickNext}>next</button></li>
               </ul></>}
-             <form onSubmit={onSearchCharacter}> 
-             <input onChange={handleInput} value={inputValue}></input>
-             <button type='submit'>find</button>
+             <form className={s.form} onSubmit={onSearchCharacter}> 
+             <input className={s.input} onChange={handleInput} value={inputValue}></input>
+             <button className={s.btnSubmit} type='submit'>find</button>
             </form>
              <div>
-               {singleCharacter&& singleCharacter.name}
+               {singleCharacter&& <section className={s.section}>
+                <p style={{fontSize:"50px"}}>{singleCharacter.name}</p>
+                <p>mass: {singleCharacter.mass}</p>
+                <p>gender: {singleCharacter.gender}</p>
+               </section> }
              </div>
     </div>
   )

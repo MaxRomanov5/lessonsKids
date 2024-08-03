@@ -23,3 +23,32 @@ cursor: pointer;
     gap: 30px;
     margin-top: 40px;
 }
+.input{
+    padding: 10px;
+    border-radius: 5px;
+    font-size: medium;
+}
+.form{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    align-items: center;
+    margin-top: 20px; 
+}
+.btnSubmit{
+    background-color: purple;
+    border-radius: 5px;
+    border: 2px solid white;
+    font-size: 20px;
+    padding: 5px;
+}
+.section{
+    display: flex;
+    border: 2px solid white;
+    width: 400px;
+    margin: 0 auto;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+    margin-top: 50px;
+}
